@@ -45,6 +45,7 @@ documentation_content = """
 假设有以下目录结构： 
 
 **源目录 (`src_directory`)**
+`
 src/
 ├── document.md
 ├── image.png
@@ -56,15 +57,14 @@ src/
 │ └── sublevel1/
 │ ├── details.md
 │ └── file.txt
-
-
+`
 
 **执行效果**
 
 执行程序后，`src/`目录中所有的文件会被拷贝到目标目录 (`dest_directory`)，其中所有的Markdown文件内容会被合并到一个文件中，且目录结构会剥离第一层嵌套夹，结果如下：
 
 **目标目录 (`dest_directory`)**
-
+`
 dest/
 ├── document.md # (原始拷贝)
 ├── image.png # (原始拷贝)
@@ -76,7 +76,7 @@ dest/
 │ ├── details.md # 同原结构
 │ └── file.txt # 同原结构
 └── merged.md # 合并后的Markdown
-
+`
 
 
 `merged.md` 文件将包含 `document.md`、`info.md` 和 `details.md` 的内容。
