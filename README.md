@@ -1,8 +1,3 @@
- # Writing the provided user documentation into a Markdown file.
-
-documentation_content = """
-# 用户文档 - Markdown文件合并与目录结构管理工具
-
 ## 介绍
 
 本程序的设计目的是合并指定源目录下的所有Markdown文件，同时将源目录及其子目录中的文件（不包含文件夹）复制到目标目录中。程序将忽略源目录中的次一级目录，并将次二级目录的内容直接合并到目标目录的次一级目录中。此设计可以确保Markdown文件中引用的任何资源文件（如图片、资产文件夹等）仍然能够正确引用。
@@ -47,16 +42,23 @@ documentation_content = """
 **源目录 (`src_directory`)**
 ```
 src/
-├── document.md
-├── image.png
-├── level1/
-│ ├── info.md
-│ ├── asset/
-│ │ ├── image1.jpg
-│ │ └── script.js
-│ └── sublevel1/
-│ ├── details.md
-│ └── file.txt
+├── d1/
+│   ├── asset/
+│   │   ├── d1.png
+│   │   ├── d1.jpg
+│   │   └── d1.txt
+│   └── d1.md
+├── d2/
+│   ├── d2_1.png
+│   ├── d2.jpg
+│   ├── d2.excel
+│   └── d2.md
+├── d3/
+│   ├── d3_1.png
+│   ├── d3.jpg
+│   ├── d3.excel
+│   ├── d3.md
+│   └── d3_2.md
 ```
 
 **执行效果**
@@ -66,16 +68,21 @@ src/
 **目标目录 (`dest_directory`)**
 ```
 dest/
-├── document.md # (原始拷贝)
-├── image.png # (原始拷贝)
-├── info.md # 在src/level1内找到的
 ├── asset/
-│ ├── image1.jpg # 保留
-│ └── script.js # 保留
-├── sublevel1/
-│ ├── details.md # 同原结构
-│ └── file.txt # 同原结构
-└── merged.md # 合并后的Markdown
+│   ├── d1.png
+│   ├── d1.jpg
+│   └── d1.txt
+├── d2_1.png
+├── d2.jpg
+├── d2.excel
+├── d3_1.png
+├── d3.jpg
+├── d3.excel
+├── d1.md
+├── d2.md
+├── d3.md
+├── d3_2.md
+└── merged.md  # 合并后的Markdown文件，包括 d1.md, d2.md, d3.md, d3_2.md 的内容
 ```
 
 
